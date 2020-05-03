@@ -308,6 +308,7 @@ export default {
         return this.$message.error("查询用户失败")
       }
       this.editForm = res.data
+      console.log(this.editForm)
       this.exitDialogVisible = true
     },
     // 表单关闭重置监听
@@ -326,6 +327,13 @@ export default {
             mobile: this.editForm.mobile
           }
         )
+        console.log(this.$http.put(
+          "users/" + this.editForm.id,
+          {
+            email: this.editForm.email,
+            mobile: this.editForm.mobile
+          }
+        ))
         if (res.meta.status !== 200) {
           this.$message.error("修改用户信息失败！")
         }
@@ -353,7 +361,7 @@ export default {
       if (confirmResult == "confirm") {
         const { data: res } = await this.$http.delete("users/" + id)
         if (res.meta.status !== 200) {
-          this.$message.error("删除用户失败！")
+          return this.$message.error("删除用户失败！")
         }
         this.$message.success("成功删除该用户！")
         this.getUserList()
