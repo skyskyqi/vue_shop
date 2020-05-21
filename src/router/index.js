@@ -8,6 +8,9 @@ import Rights from '../components/power/Rights.vue'
 import Roles from '../components/power/Roles.vue'
 import Orders from '../components/orders/Orders.vue'
 import Report from '../components/report/Report.vue'
+import Cart from '../components/goods/Cart.vue'
+import Params from '../components/goods/Params.vue'
+import Glist from '../components/goods/Glist.vue'
 
 Vue.use(VueRouter)
 
@@ -24,7 +27,10 @@ const routes = [
       { path: '/rights', component: Rights },
       { path: '/roles', component: Roles },
       { path: '/orders', component: Orders },
-      { path: '/reports', component: Report }
+      { path: '/reports', component: Report },
+      { path: '/categories', component: Cart },
+      { path: '/params', component: Params },
+      { path: '/goods',  component: Glist}
     ]
   }
 ]
